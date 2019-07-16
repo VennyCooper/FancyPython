@@ -1,9 +1,10 @@
 [Docs]
 
 This directory contains sub-directories:
-  1. Documentations
+  1. Notes
+    The user can create the subfolder with the name of user's nickname/alias, and upload personal notes there.
   2. Tutorials
-  3. Useful materials
-  4. ...
+    It contains useful materials (instructions, documentations...)
+  3. ...
   (further needs)
   
