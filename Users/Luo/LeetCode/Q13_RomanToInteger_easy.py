@@ -50,24 +50,24 @@
 # Output: 1994
 # Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        # conversion dict
+        roman_int_dict = {
+            'I':1, 'V':5, 'X':10, 'L':50,
+            'C':100,'D':500, 'M':1000
+        }
+        # validate the Roman string
+        for c in s:
+            if not c in roman_int_dict:
+                raise Exception('Invalid char found in the given string:' + c)
+        result, str_len = roman_int_dict[s[-1]], len(s)
+        for i in range(str_len - 1):
+            if roman_int_dict[s[i]] < roman_int_dict[s[i + 1]]:
+                result -= roman_int_dict[s[i]]
+            else:
+                result += roman_int_dict[s[i]]
+        return result
 
-
-def roman_to_integer(s: str) -> int:
-    # conversion dict
-    roman_int_dict = {
-        'I':1, 'V':5, 'X':10, 'L':50,
-        'C':100,'D':500, 'M':1000
-    }
-    # validate the Roman string
-    for c in s:
-        if not c in roman_int_dict:
-            raise Exception('Invalid char found in the given string:' + c)
-    result, str_len = roman_int_dict[s[-1]], len(s)
-    for i in range(str_len - 1):
-        if roman_int_dict[s[i]] < roman_int_dict[s[i + 1]]:
-            result -= roman_int_dict[s[i]]
-        else:
-            result += roman_int_dict[s[i]]
-    return result
-
-print(roman_to_integer('IVf'))
+s = Solution()
+print(s.romanToInt('IV'))
