@@ -21,7 +21,9 @@ class Solution:
         digit_count = len(N_str)
         result_str = ''
         for i in range(digit_count - 1, 0, -1):
-            print(i)
+            if N_str[i] < N_str[i - 1]:
+                N_str[i] = '9'
+                N_str[i - 1] = 
 
 s = Solution()
 s.monotoneIncreasingDigits(345)
