@@ -20,8 +20,14 @@ class Solution:
         N_list = list(str(N))
         cliff_end = 0
         N_len = len(N_list)
-        while i < len(N_len) - 1 and N_list[i] <= N_list[i + 1]
-            i += 1
-        
+        while cliff_end < N_len - 1 and N_list[cliff_end] <= N_list[cliff_end + 1]:
+            cliff_end += 1
+        start = cliff_end + 1
+        while 0 < start < N_len and N_list[start - 1] > N_list[start]:
+            start -= 1
+            N_list[start] = str(int(N_list[start]) - 1)
+        N_list[start + 1:] = '9' * (N_len - start - 1)
+        return int(''.join(N_list))
+
 s = Solution()
-print(s.monotoneIncreasingDigits(100))
+print(s.monotoneIncreasingDigits(12231))
