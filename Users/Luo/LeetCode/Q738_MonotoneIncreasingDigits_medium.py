@@ -17,13 +17,17 @@
 
 class Solution:
     def monotoneIncreasingDigits(self, N: int):
-        N_str = str(N)
-        digit_count = len(N_str)
-        result_str = ''
-        for i in range(digit_count - 1, 0, -1):
-            if N_str[i] < N_str[i - 1]:
-                N_str[i] = '9'
-                N_str[i - 1] = 
+        N_list = list(str(N))
+        cliff_end = 0
+        N_len = len(N_list)
+        while cliff_end < N_len - 1 and N_list[cliff_end] <= N_list[cliff_end + 1]:
+            cliff_end += 1
+        start = cliff_end + 1
+        while 0 < start < N_len and N_list[start - 1] > N_list[start]:
+            start -= 1
+            N_list[start] = str(int(N_list[start]) - 1)
+        N_list[start + 1:] = '9' * (N_len - start - 1)
+        return int(''.join(N_list))
 
 s = Solution()
-s.monotoneIncreasingDigits(345)
+print(s.monotoneIncreasingDigits(12231))
