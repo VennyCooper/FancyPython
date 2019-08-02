@@ -1,7 +1,7 @@
 from node import Node 
 class Tree:
-    def __init__(self):
-        pass
+    def __init__(self, data=None):
+        self.root = None if data == None else Node(data)
     
     def insert(self, data):
         pass
@@ -22,16 +22,16 @@ class Tree:
     def postorder_traversal(self, root_node):
         if root_node == None:
             return
-        self.preorder_traversal(root_node.left)
-        self.preorder_traversal(root_node.right)
+        self.postorder_traversal(root_node.left)
+        self.postorder_traversal(root_node.right)
         root_node.print_node()
 
     def inorder_traversal(self, root_node):
         if root_node == None:
             return
-        self.preorder_traversal(root_node.left)
+        self.inorder_traversal(root_node.left)
         root_node.print_node()
-        self.preorder_traversal(root_node.right)
+        self.inorder_traversal(root_node.right)
 
     def print_tree(self):
         pass
