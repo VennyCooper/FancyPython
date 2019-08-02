@@ -1,7 +1,7 @@
 from node import Node 
 class Tree:
-    def __init__(self, data):
-        self.root = Node(data)
+    def __init__(self, data=None):
+        self.root = None if data == None else Node(data)
     
     def insert(self, data):
         pass
