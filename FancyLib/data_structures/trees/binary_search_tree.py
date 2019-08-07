@@ -1,6 +1,15 @@
 from binary_tree import BinaryTree
 from node import Node
 
+'''
+    Methods that keep same as in base class BinaryTree:
+        1. get_tree_depth(self) -> int
+        2. get_depth_from_node(self, start_node: Node) -> int
+        3. preorder_traversal(self, root_node: Node)
+        4. inorder_traversal(self, root_node: Node)
+        5. postorder_traversal(self, root_node: Node)
+'''
+
 class BinarySearchTree(BinaryTree):
     
     def is_tree_empty(self) -> bool:
