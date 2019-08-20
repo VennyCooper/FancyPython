@@ -1,5 +1,6 @@
 from node import Node
 
+
 class SinglyLinkedList:
 
     def __init__(self, head=None):
@@ -73,7 +74,8 @@ class SinglyLinkedList:
         data_node.next_node = self.head
         self.head = data_node
 
-    
+
+    # Insert a new node after
     def insert_after_node(self, data, prev_node: Node):
         if prev_node is None:
             return
