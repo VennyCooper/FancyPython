@@ -158,10 +158,24 @@ class SinglyLinkedList:
         return pointer_2
 
 
+    def reverse(self):
+        # None -> head -> 1 -> 2 -> ...
+        tmp_node = self.head
+        prev_node = None
+        while tmp_node is not None:
+            next_node = tmp_node.next_node
+            tmp_node.next_node = prev_node
+            prev_node = tmp_node
+            tmp_node = next_node
+        self.head = prev_node
+
+
+
 
 s = SinglyLinkedList()
 data = [90,100,3,1,24,8,66]
 for d in data:
     s.insert_to_tail(d)
 s.print_linked_list()
-print(s.get_nth_node_data_from_end_twoPointers(4).data)
+s.reverse()
+s.print_linked_list()
