@@ -129,7 +129,7 @@ class SinglyLinkedList:
         tmp_node.next_node = next
 
 
-    # get the n-th node from the end (end is the 1st node)
+    # Get the n-th node from the end (end is the 1st node)
     def get_nth_node_from_end(self, n: int) -> Node:
         length = self.get_length()
         if n > length:
@@ -139,8 +139,9 @@ class SinglyLinkedList:
         for i in range(length - n):
             tmp_node = tmp_node.next_node
         return tmp_node
-        
-    # get the n-th node from the end (end is the 1st node) using two-pointer method
+
+
+    # Get the n-th node from the end (end is the 1st node) using two-pointer method
     def get_nth_node_data_from_end_twoPointers(self, n: int) -> Node:
         # 1. Define two pointers, both point to the head node
         # 2. Move pointer 1 to the n-th node from head node
@@ -158,6 +159,7 @@ class SinglyLinkedList:
         return pointer_2
 
 
+    # Reverse the linked list
     def reverse(self):
         # None -> head -> 1 -> 2 -> ...
         tmp_node = self.head
@@ -168,7 +170,6 @@ class SinglyLinkedList:
             prev_node = tmp_node
             tmp_node = next_node
         self.head = prev_node
-
 
 
 
