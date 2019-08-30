@@ -8,10 +8,16 @@ class SinglyLinkedList:
     
 
     def is_empty(self) -> bool:
+        """
+        Check if the linked list is empty (head is None)
+        """
         return self.head is None
 
 
     def get_length(self, start_node=None) -> int:
+        """
+        
+        """
         start_node = self.head if start_node is None else start_node
         length = 0
         start_node = self.head
@@ -22,6 +28,9 @@ class SinglyLinkedList:
 
 
     def get_length_recursively(self, start_node: Node) -> int:
+        """
+        
+        """
         if start_node is None:
             return 0
         else:
@@ -29,6 +38,9 @@ class SinglyLinkedList:
 
 
     def print_linked_list(self):
+        """
+        
+        """
         if self.head is None:
             print('HEAD: None (Linked list is empty )')
         else:
@@ -42,6 +54,9 @@ class SinglyLinkedList:
 
 
     def search(self, data) -> Node:
+        """
+        
+        """
         tmp_node = self.head
         while tmp_node is not None:
             if tmp_node.data == data:
@@ -51,10 +66,16 @@ class SinglyLinkedList:
 
 
     def append(self, data):
+        """
+        
+        """
         self.insert_to_tail(data)
 
 
     def insert_to_tail(self, data):
+        """
+        
+        """
         data_node = Node(data)
         if self.head is None:
             self.head = data_node
@@ -65,11 +86,19 @@ class SinglyLinkedList:
             tmp_node.next_node = data_node
 
 
+    # Insert a node to the head of linked list
     def push(self, data):
+        """
+        
+        """
         self.insert_to_head(data)
 
 
+    # Insert a node to the head of linked list
     def insert_to_head(self, data):
+        """
+        
+        """
         data_node = Node(data)
         data_node.next_node = self.head
         self.head = data_node
@@ -77,6 +106,9 @@ class SinglyLinkedList:
 
     # Insert a new node after
     def insert_after_node(self, data, prev_node: Node):
+        """
+        
+        """
         if prev_node is None:
             return
         if self.search(prev_node.data) is None:
@@ -88,6 +120,9 @@ class SinglyLinkedList:
 
     # Delete the first occurrence of the given data node
     def delete_data(self, data):
+        """
+        
+        """
         # return if linked list is empty (head is None)
         if self.is_empty():
             return
@@ -108,11 +143,21 @@ class SinglyLinkedList:
 
     # Delete the first occurrence of the given node
     def delete_node(self, node: Node):
+        """
+        
+        """
         self.delete_data(node.data)
 
 
     # Delete the node at the given index
     def delete_node_at_index(self, index: int):
+        """
+        Get the index-th node from the head (end is the 1st node)
+        
+        :param index: index of the node
+        
+        :return: index-th node
+        """
         tmp_node = self.head
         if index == 0:
             self.head = tmp_node.next_node
@@ -131,8 +176,14 @@ class SinglyLinkedList:
         tmp_node.next_node = next
 
 
-    # Get the n-th node from the end (end is the 1st node)
     def get_nth_node_from_end(self, n: int) -> Node:
+        """
+        Get the n-th node from the end (end is the 1st node)
+        
+        :param n: index of the node from the end (end's index is 1)
+        
+        :return: n-th node from the end
+        """
         length = self.get_length()
         if n > length:
             print(f'Error: The given n = {n} is larger than the length = {length} of the linked list')
@@ -143,8 +194,14 @@ class SinglyLinkedList:
         return tmp_node
 
 
-    # Get the n-th node from the end (end is the 1st node) using two-pointer method
     def get_nth_node_data_from_end_twoPointers(self, n: int) -> Node:
+        """
+        Get the n-th node from the end (end is the 1st node) using two-pointer method.
+        
+        :param n: index of the node from the end (end's index is 1)
+        
+        :return: n-th node from the end
+        """
         # 1. Define two pointers, both point to the head node
         # 2. Move pointer 1 to the n-th node from head node
         # 3. Move both pointers one by one until pointer 1 reaches the end node
@@ -161,8 +218,10 @@ class SinglyLinkedList:
         return pointer_2
 
 
-    # Reverse the linked list
     def reverse(self):
+        """
+        Reverse the linked list.
+        """
         # None -> head -> 1 -> 2 -> ...
         tmp_node = self.head
         prev_node = None
