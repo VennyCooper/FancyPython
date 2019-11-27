@@ -128,8 +128,8 @@ class K_Means_Clustering():
 
 test = True
 if test:
-   # data = [[30,10], [25,15], [33,9], 
-   # [90,62], [85,77], [88, 69], 
+   # data = [[30,10], [25,15], [33,9],
+   # [90,62], [85,77], [88, 69],
    # [55,29], [56,30], [55,30]]
    import csv
    csv_file = r'/home/vincentluo/Developing/Repos/Python_Repo/FancyPython/FancyLib/machine_learning/k-means_data.csv'
