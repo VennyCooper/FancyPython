@@ -10,18 +10,16 @@
 #   Your algorithm should run in linear runtime complexity. Could you implement it using only constant space complexity?
 
 class Solution:
-    def singleNumber(self, nums: list) -> list:
-        pass
 
-
-s = Solution()
-# print(s.singleNumber([1,2,1,3,2,5]))
-
-def toBin(n):
-    binary = ''
-    while n > 0:
-        binary += str(n%2)
-        n //= 2
-    return binary[::-1]
-
-print(toBin(11))
+    def singleNumber(self, nums):
+        xor = 0
+        for n in nums:
+            xor ^= n
+        mask = xor & -xor
+        x, y = 0, 0
+        for n in nums:
+            if n & mask:
+                x ^= n
+            else:
+                y ^= n
+        return [x, y]
